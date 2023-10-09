@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Send given string (as $1) to default usb to serial port
+
+export pfport=/dev/ttyUSB0
+
+if [ $# -eq 0 ]; then
+    echo "No parameter given"
+    exit 1
+fi
+
+# By default set the port parameters in each execution
+stty -F $pfport cs8 115200 ignbrk -brkint -icrnl -imaxbel -opost -onlcr -isig -icanon -iexten -echo -echoe -echok -echoctl -echoke noflsh -ixon -crtscts -hupcl
+
+echo -e "Sending\n\`\`\`"
+echo -e "$1\n"
+echo -e "\`\`\`"
+echo -e "to $pfport ...\n"
+echo "$@ " > $pfport
+exit 0
+

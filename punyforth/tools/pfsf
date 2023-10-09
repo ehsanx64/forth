@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+export pfport=/dev/ttyUSB0
+
+if [ $# -eq 0 ]; then
+    echo "No parameter given"
+    exit 1
+fi
+
+if [ ! -f "$1" ]; then
+    echo "file '$1' not found"
+    exit 1
+fi
+
+echo -e "Sending $1 to $pfport ...\n"
+
+while IFS= read -r line
+do
+  echo -e "$line \n\r" > "$pfport"
+  sleep 0.2
+done < "$1"
+
+exit 0
+

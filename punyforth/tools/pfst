@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Send script arguments to punyforth TCP REPL
+
+# TODO
+# - Use environment variables instead of hardcoded values for node IP and port 
+#       numbers
+
+# Shortcuts
+pf="192.168.1.110 1983"
+
+echo "Sending '$@' ..."
+netcat -q1 $pf <<< "$@"
+
