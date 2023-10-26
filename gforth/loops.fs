@@ -48,6 +48,30 @@
         i .
     2 -loop ;
 
+: exit-on-5 ( -- )
+    10 0 u+do
+        i 5 = if
+            cr ." Exiting the loop ..." cr
+            leave
+        else
+            i .
+        then
+    loop
+    ." Out of the loop" cr
+    ;
+
+: exit-on-7 ( -- )
+    10 0 u+do
+        i 7 = if
+            cr ." Exiting the loop and word ..."
+            unloop exit
+        else
+            i .
+        then
+    loop
+    ." Out of the loop" cr
+    ;
+
 \ endless
 
 7 log2 . cr
@@ -65,3 +89,6 @@
 10 2 up2 cr
 
 0 10 down2 cr
+
+exit-on-5 cr
+exit-on-7 cr
