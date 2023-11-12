@@ -46,8 +46,15 @@ v2 20 cells dump
     loop ;
 
 v2 4 vsum-1
-cr .s 
+cr .s cr
 
-cr
+\ Another method to allocate memory on dictionary is using following un-orthodox
+\ method
+
+\ here address was retrieved before using allot. allot alters the here address
+." Allocating 2 cells on the dictionary ..."
+here 2 cells allot cr
+." Old here: " . cr
+." New here: " here . cr
 
 
