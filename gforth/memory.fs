@@ -26,10 +26,28 @@ v2 20 cells erase
 ." Dump of v2:" 
 v2 20 cells dump
 
-." Setting 3 at third cell and -1 at fifth cell ..." 
+." Setting values at indeces ..." cr
+." 10 -> [1] second cell" cr
+." 3  -> [2] third cell" cr
+." 5  -> [3] fourth cell" cr
+." -1 -> [4] fifth cell" cr
+
+10 v2 1 cells + !
 3 v2 2 cells + !
+5 v2 3 cells + !
 -1 v2 4 cells + !
 
 ." Dump of v2:" 
 v2 20 cells dump
+
+: vsum-1 ( addr u -- n )
+    0 -rot 1+ 0 ?do
+        cr dup i cells + @ rot + swap 
+    loop ;
+
+v2 4 vsum-1
+cr .s 
+
+cr
+
 
