@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Send content of the given filename to punyforth REPL running at a serial port
+
 export pfport=/dev/ttyUSB0
 
 if [ $# -eq 0 ]; then
