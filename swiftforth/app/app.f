@@ -7,26 +7,25 @@
 \ Our config file
 s" config.f" 2constant config-file
 
-\ Controls debugging/logging output
+\ Controls debugging/logging output. Redefinition/override is done
+\ in env.f file)
 false constant -v
 
-\ If verbose mode is active dump the stack
-: -v? ( -- )
-    -v if .s then ;
+\ Try to check for and include the config file
+: load-config ( -- )
+    config-file 2dup file-exists 
+    if included
+    else abort" Config file not found! Exiting ..."
+    then
+    ;
+
+load-config
 
 \ Display <error> if verbose flag is active
 : log" ( <error> -- )
     [char] " parse postpone sliteral 
     -v if postpone type postpone cr else postpone 2drop then
     ; immediate
-
-\ Try to check for and include the config file
-: load-config ( -- )
-    config-file 2dup file-exists 
-    if included
-    else -v? abort" Config file not found! Exiting ..."
-    then
-    ;
 
 \ If the word given as counted string exists execute it
 : run? ( addr u -- )
@@ -52,7 +51,6 @@ false constant -v
 
 \ Application
 : main ( -- )
-    load-config
     run?" on-start"
     run?" in-the-middle"
     run?" on-end"
