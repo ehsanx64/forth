@@ -22,3 +22,4 @@ LED GPIO_OUT gpio-mode
 \ Turn on a LED
 : on ( pin -- ) GPIO_LOW gpio-write ;
 
+/end

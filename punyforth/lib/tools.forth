@@ -39,3 +39,5 @@
 \ Display the flag status
 : flag? ( f -- )
     if println: "True" else println: "False" then ;
+
+/end
