@@ -53,7 +53,7 @@
 create: mix:buff buff% allot
 
 \ Replace % in template with pattern, return the result buffer
-: interpolate ( template pattern -- addr )
+: mix ( template pattern -- addr )
     \ Clear the buffer and set its length to zero
     mix:buff buff% erase 0 mix:buff c!
 

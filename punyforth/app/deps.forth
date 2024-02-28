@@ -3,7 +3,7 @@ marker: -app-deps.forth
 
 \ WIFI load
 \ NETCON load 
-\ GPIO load
+GPIO load
 
 
 149 load
