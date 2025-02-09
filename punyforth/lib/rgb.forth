@@ -6,8 +6,8 @@ RGB GPIO_OUT gpio-mode
 
 \ Define some color constants
 16r020001 constant: mild
-16r0f0000 constant: green
-16r00000f constant: blue
+16r000f00 constant: red 16r0f0000 constant: green 16r00000f constant: blue
+16r000f0f constant: magenta 16r0f0f00 constant: yellow 16r0f000f constant: cyan
 \ TODO: Define more preset colors
 
 \ Tools
