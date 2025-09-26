@@ -26,7 +26,7 @@ create buff BUFF_SIZE chars allot
     \ Clear the bufer
     bb erase
 
-    \ Read up to 127 characters from the pipe
+    \ Read up to BUF_SIZE characters from the pipe
     buff 1+ BUFF_SIZE 1- the-pipe @ read-line throw
 
     \ If read was successful we should save the bytes read at first buffer byte
