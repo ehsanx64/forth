@@ -11,6 +11,10 @@ hopefully implemented by this library.
 
 ## Systems
 
+Forth systems which are complete and polished enough to be used as the base for
+4thlib implementation. The list (ordered by priority and preference) is as
+follows:
+
 - gforth
 - pForth
 - SwiftForth
